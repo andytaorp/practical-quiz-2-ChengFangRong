@@ -1,47 +1,25 @@
 import React, { useState } from "react";
 
 export default function Form({ onAddTask }) {
-  const [description, setDescription] = useState("");
+  const [taskDescription, setTaskDescription] = useState("");
 
   const handleSubmit = (e) => {
-    // TODO: write code to handle form submission
     e.preventDefault();
-
-    setDescription(e.target.value);
-
-    const newTask = {
-      id: Date.now(),
-      description,
-      status: false     
-    };
-
-    onAddTask(newTask);
-    return (setDescription(""))
-
-
+    if (taskDescription.trim()) {
+      onAddTask({ description: taskDescription });
+      setTaskDescription("");
+    }
   };
 
   return (
-    /*TODO: add a form to add a new task*/
     <form onSubmit={handleSubmit}>
-
-    <input
-      type="text"
-      placeholder="task.."
-      value={description}
-      onChange={(e) => setDescription(e.target.value)}
-      >
-    </input>
-
-    <button id="submit">add task</button>
-
-
-
+      <input
+        type="text"
+        placeholder="Add a new task"
+        value={taskDescription}
+        onChange={(e) => setTaskDescription(e.target.value)}
+      />
+      <button type="submit">Add Task</button>
     </form>
-
-    
-
-
-    
   );
 }
