@@ -5,9 +5,43 @@ export default function Form({ onAddTask }) {
 
   const handleSubmit = (e) => {
     // TODO: write code to handle form submission
+    e.preventDefault();
+
+    setDescription(e.target.value);
+
+    const newTask = {
+      id: Date.now(),
+      description,
+      status: false     
+    };
+
+    handleAddTask(newTask);
+    return (setDescription(""))
+
+
   };
 
-  return {
+  return (
     /*TODO: add a form to add a new task*/
-  };
+    <form onSubmit={handleSubmit}>
+
+    <input
+      type="text"
+      placeholder="task.."
+      value={description}
+      onChange={(e) => setDescription(e.target.value)}
+      >
+    </input>
+
+    <button id="submit">add task</button>
+
+
+
+    </form>
+
+    
+
+
+    
+  );
 }

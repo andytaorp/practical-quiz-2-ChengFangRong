@@ -5,4 +5,20 @@ import React from "react";
  * @function Task
  * @returns {React.Component} A <li> containing the task description and a checkbox to toggle completion
  */
-export default function Task() {}
+
+
+
+
+export default function Task(description, status) {
+    if (status === true) {
+        return (<li
+         style = {{textDecoration: "line-through"}}>
+            {description}
+        
+        </li>)
+      } 
+    if (status === false) {
+        return (<li>{description}</li>);
+    };
+        
+}
