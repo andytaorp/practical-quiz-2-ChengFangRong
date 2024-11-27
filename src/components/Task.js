@@ -13,6 +13,7 @@ export default function Task(description, status) {
     if (status === true) {
         return (<li
          style = {{textDecoration: "line-through"}}>
+            <input type='checkbox' ></input>
             {description}
         
         </li>)
