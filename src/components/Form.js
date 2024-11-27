@@ -15,7 +15,7 @@ export default function Form({ onAddTask }) {
       status: false     
     };
 
-    handleAddTask(newTask);
+    onAddTask(newTask);
     return (setDescription(""))
 
 
