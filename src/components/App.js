@@ -34,6 +34,8 @@ function App() {
 
   return (
     <div className="app">
+      <Form onAddTask = {handleAddTask}/>
+      <TaskList tasks = {tasks} onToggleTask = {handleToggleTask} onDeleteTask = {handleDeleteTask} />
       <h1>Task Tracker</h1>
       {/*TODO: add a form to add a new task*/}
 
